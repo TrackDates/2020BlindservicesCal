@@ -1,0 +1,14 @@
+{
+  "templates": [
+    {
+      "id": "default",
+      "name": "Default window covering",
+      "fields": {
+        "depth": true,
+        "control": true,
+        "splits": true,
+        "notes": true
+      }
+    }
+  ]
+}

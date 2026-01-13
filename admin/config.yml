@@ -1,0 +1,31 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "settings"
+    label: "Settings"
+    files:
+      - name: "templates"
+        label: "Measurement Templates"
+        file: "data/templates.json"
+        format: "json"
+        fields:
+          - label: "Templates"
+            name: "templates"
+            widget: "list"
+            summary: "{{fields.name}} ({{fields.id}})"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - label: "Fields"
+                name: "fields"
+                widget: "object"
+                fields:
+                  - { label: "Window depth", name: "depth", widget: "boolean", default: true }
+                  - { label: "Control length", name: "control", widget: "boolean", default: true }
+                  - { label: "Split locations", name: "splits", widget: "boolean", default: true }
+                  - { label: "Notes", name: "notes", widget: "boolean", default: true }
