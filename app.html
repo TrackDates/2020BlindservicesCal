@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Measure Form</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer src="https://unpkg.com/netlify-identity-widget@1/build/netlify-identity-widget.js"></script>
+  <script defer src="/app.js"></script>
+  <script defer src="/pwa.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">2020 Measure</a>
+    <div id="auth" class="auth"></div>
+  </header>
+
+  <main class="container">
+    <section id="loginGate" class="card hidden">
+      <h1>Sign in to use the measure form</h1>
+      <p class="muted">This keeps the tool employee-only.</p>
+      <button id="btnLogin" class="btn">Sign in / Create account</button>
+    </section>
+
+    <section id="app" class="card hidden">
+      <div class="row-between">
+        <h1>Window Covering Measure Sheet</h1>
+        <div class="pill" id="userPill"></div>
+      </div>
+
+      <form id="measureForm" name="measure" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks">
+        <input type="hidden" name="form-name" value="measure" />
+        <p class="hidden">
+          <label>Don’t fill this out: <input name="bot-field" /></label>
+        </p>
+
+        <div class="grid-3">
+          <label>Job #<input name="job_number" id="jobNumber" required /></label>
+          <label>Client / Site<input name="client" id="client" /></label>
+          <label>Date<input name="date" id="date" /></label>
+          <label>Measured by<input name="measured_by" id="measuredBy" /></label>
+          <label>Units
+            <select name="units" id="units">
+              <option value="in">Inches (decimal)</option>
+              <option value="mm">Millimeters</option>
+            </select>
+          </label>
+          <label>Notes<input name="job_notes" id="jobNotes" /></label>
+        </div>
+
+        <hr class="sep" />
+
+        <div class="row-between">
+          <h2>Windows</h2>
+          <div class="row">
+            <button type="button" id="addWindow" class="btn btn-secondary">Add Window</button>
+            <button type="button" id="exportJson" class="btn btn-secondary">Export JSON</button>
+            <button type="button" id="clearDraft" class="btn btn-danger">Clear Draft</button>
+          </div>
+        </div>
+
+        <div id="windows"></div>
+
+        <hr class="sep" />
+
+        <input type="hidden" name="payload" id="payload" />
+        <button type="submit" id="submitBtn" class="btn">Submit to Office</button>
+        <p class="muted small">Submitting sends one JSON payload to Netlify Forms (viewable in the Netlify dashboard).</p>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

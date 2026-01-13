@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2020 Measure</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta name="theme-color" content="#111111" />
+  <script defer src="https://unpkg.com/netlify-identity-widget@1/build/netlify-identity-widget.js"></script>
+  <script defer src="/site.js"></script>
+  <script defer src="/pwa.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">2020 Measure</div>
+    <div id="auth" class="auth"></div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Digital Measure Sheet (Leica DISTO X3)</h1>
+      <p class="muted">
+        Use Leica <strong>Bluetooth keyboard mode</strong> to “type” measurements straight into the form.
+        Works on Windows/iPad/Android without special Bluetooth APIs.
+      </p>
+
+      <div class="grid-2">
+        <a class="btn" href="/app">Open Measure Form</a>
+        <a class="btn btn-secondary" href="/admin/">Admin Console</a>
+      </div>
+
+      <hr class="sep" />
+
+      <details>
+        <summary><strong>Setup (pairing + best settings)</strong></summary>
+        <ol>
+          <li>Pair the DISTO X3 to your device in Bluetooth settings (it will show as a keyboard).</li>
+          <li>On the X3: in Bluetooth settings, set <em>termination</em> to <strong>Tab</strong> so it jumps to the next field.</li>
+          <li>Optional: turn <em>units transfer</em> off so it sends plain numbers (easier to parse).</li>
+        </ol>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Offline-friendly</h2>
+      <p class="muted">The form keeps a draft locally (per job number) so you don’t lose work on site.</p>
+    </section>
+  </main>
+
+  <footer class="footer">2020 Blind Installations Inc.</footer>
+</body>
+</html>
